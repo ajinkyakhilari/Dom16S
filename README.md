@@ -27,20 +27,11 @@ argparse
 
 matplotlib
 
-📌 Example Data: Test dataset available in the example_data/ folder.
+
 
 📌 Citation: If you use Dom16S in your research, please cite this repository.
 
+
 📌 License: [MIT License] or [GPLv3] (Choose based on preference)
 
-GitHub Repository File Structure
-graphql
-Copy
-Edit
-Dom16S/
-│── dom16s.py                     # Main script
-│── README.md                      # Documentation
-│── LICENSE                        # Open-source license
-│── example_data/                   # Example TSV files
-│── requirements.txt                # Dependencies list
-│── results/                        # Output CSVs and plots
+
