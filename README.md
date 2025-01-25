@@ -1,4 +1,5 @@
-#Dom16S: A Python Pipeline for Identifying Dominant Organisms in 16S rRNA Sequencing Data
+### Dom16S: A Python Pipeline for Identifying Dominant Organisms in 16S rRNA Sequencing Data
+
 📌 Description:
 Dom16S is a lightweight and efficient Python-based pipeline for processing 16S rRNA sequencing data across different experimental conditions. It automatically aggregates taxonomic abundance from multiple TSV files, calculates mean abundance, prevalence, and adjusted abundance, and ranks dominant taxa within each group. The tool is designed for microbiome analysis in environmental, clinical, and experimental microbiology studies.
 
