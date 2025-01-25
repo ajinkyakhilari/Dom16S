@@ -4,10 +4,15 @@
 Dom16S is a lightweight and efficient Python-based pipeline for processing 16S rRNA sequencing data across different experimental conditions. It automatically aggregates taxonomic abundance from multiple TSV files, calculates mean abundance, prevalence, and adjusted abundance, and ranks dominant taxa within each group. The tool is designed for microbiome analysis in environmental, clinical, and experimental microbiology studies.
 
 📌 Key Features: 
+
 ✅ Batch Processing – Processes multiple groups in a single run
+
 ✅ Prevalence-Based Filtering – Identifies organisms consistently present across samples
+
 ✅ Adjusted Abundance Calculation – Ranks dominant taxa based on abundance and prevalence
+
 ✅ Normalization & Visualization – Generates normalized abundance scores and plots
+
 ✅ Reproducible & Portable – Easily integrates into bioinformatics workflows
 
 📌 Installation & Usage: Clone the repository and run the pipeline using:
