@@ -12,17 +12,19 @@ Dom16S is a lightweight and efficient Python-based pipeline for processing 16S r
 
 📌 Installation & Usage: Clone the repository and run the pipeline using:
 
-bash
-Copy
-Edit
 git clone https://github.com/yourusername/Dom16S.git
+
 cd Dom16S
+
 python dom16s.py input_directory/
 
 📌 Required Dependencies:
 
+
 pandas
+
 argparse
+
 matplotlib
 
 📌 Example Data: Test dataset available in the example_data/ folder.
