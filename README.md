@@ -37,6 +37,5 @@ matplotlib
 📌 Citation: If you use Dom16S in your research, please cite this repository.
 
 
-📌 License: [MIT License] or [GPLv3] (Choose based on preference)
 
 
