@@ -82,28 +82,15 @@ The number of unique samples in which the species is present.
 
 ### 3. Group Abundance
 
-\[
-\text{Group Abundance} =
-\frac{\text{Total Abundance}}
-{\text{Total Samples}}
-\]
+{Group Abundance} = {Total Abundance} / {Total Samples}
 
 ### 4. Actual Abundance
 
-\[
-\text{Actual Abundance} =
-\text{Group Abundance}
-\times
-\text{Prevalence}
-\]
+{Actual Abundance} = {Group Abundance} * {Prevalence}
 
 ### 5. Normalized Actual Abundance
 
-\[
-\text{Normalized Actual Abundance} =
-\frac{\text{Actual Abundance}}
-{\sum \text{Actual Abundance}}
-\]
+{Normalized Actual Abundance} = {Actual Abundance} / {Actual Abundance}}
 
 ---
 
