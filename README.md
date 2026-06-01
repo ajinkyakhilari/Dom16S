@@ -1,41 +1,215 @@
-### Dom16S: A Python Pipeline for Identifying Dominant Organisms in 16S rRNA Sequencing Data
+# Dom16S: Dominant Organism Identification from 16S Sequencing Data
 
-📌 Description:
-Dom16S is a lightweight and efficient Python-based pipeline for processing 16S rRNA sequencing data across different experimental conditions. It automatically aggregates taxonomic abundance from multiple TSV files, calculates mean abundance, prevalence, and adjusted abundance, and ranks dominant taxa within each group. The tool is designed for microbiome analysis in environmental, clinical, and experimental microbiology studies.
+Dom16S is a Python script designed to process **16S sequencing abundance TSV files** from multiple sample groups and identify **dominant organisms** based on abundance and prevalence across samples.
 
-📌 Key Features: 
+The script calculates:
 
-✅ Batch Processing – Processes multiple groups in a single run
+- **Total abundance** of each species across samples
+- **Prevalence** (number of samples containing the species)
+- **Group abundance**
+- **Actual abundance**
+- **Normalized actual abundance**
 
-✅ Prevalence-Based Filtering – Identifies organisms consistently present across samples
+This helps identify dominant microbial taxa within experimental groups.
 
-✅ Adjusted Abundance Calculation – Ranks dominant taxa based on abundance and prevalence
+---
 
-✅ Normalization & Visualization – Generates normalized abundance scores and plots
+## Features
 
-✅ Reproducible & Portable – Easily integrates into bioinformatics workflows
+✔ Processes multiple sample groups automatically  
+✔ Reads all `.tsv` files inside group folders  
+✔ Calculates prevalence-adjusted abundance  
+✔ Normalizes abundance across organisms  
+✔ Outputs ranked dominant organisms for each group  
+✔ Suitable for microbiome and 16S amplicon sequencing studies
 
-📌 Installation & Usage: Clone the repository and run the pipeline using:
+---
 
-git clone https://github.com/yourusername/Dom16S.git
+## Directory Structure
 
+The input directory should contain subfolders representing different groups.
+
+Example:
+
+```text
+input_directory/
+│── Healthy/
+│   ├── sample1.tsv
+│   ├── sample2.tsv
+│   └── sample3.tsv
+│
+│── Diseased/
+│   ├── sample1.tsv
+│   ├── sample2.tsv
+│   └── sample3.tsv
+```
+
+Each subfolder represents a biological or experimental group.
+
+---
+
+## Input File Format
+
+Each `.tsv` file should contain at least the following columns:
+
+| Column | Description |
+|---------|-------------|
+| species | Taxonomic species name |
+| abundance | Relative abundance/count |
+
+Example:
+
+```tsv
+species	abundance
+Escherichia coli	25.4
+Klebsiella pneumoniae	18.2
+Staphylococcus aureus	7.8
+```
+
+---
+
+## Calculation Workflow
+
+For each species:
+
+### 1. Total Abundance
+
+The sum of abundance values across all samples.
+
+### 2. Prevalence
+
+The number of unique samples in which the species is present.
+
+### 3. Group Abundance
+
+\[
+\text{Group Abundance} =
+\frac{\text{Total Abundance}}
+{\text{Total Samples}}
+\]
+
+### 4. Actual Abundance
+
+\[
+\text{Actual Abundance} =
+\text{Group Abundance}
+\times
+\text{Prevalence}
+\]
+
+### 5. Normalized Actual Abundance
+
+\[
+\text{Normalized Actual Abundance} =
+\frac{\text{Actual Abundance}}
+{\sum \text{Actual Abundance}}
+\]
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/Dom16S.git
 cd Dom16S
+```
 
-python dom16s.py input_directory/
+Install dependencies:
 
-📌 Required Dependencies:
+```bash
+pip install pandas
+```
+
+---
+
+## Requirements
+
+- Python ≥ 3.8
+- pandas
+
+---
+
+## Usage
+
+Run the script using:
+
+```bash
+python Dom16S.py input_directory
+```
+
+Example:
+
+```bash
+python Dom16S.py microbiome_groups/
+```
+
+---
+
+## Output
+
+For each group, the script generates:
+
+```text
+<GroupName>_dominant_organisms.csv
+```
+
+Example:
+
+```text
+Healthy_dominant_organisms.csv
+Diseased_dominant_organisms.csv
+```
+
+The output file contains:
+
+| Column | Description |
+|---------|-------------|
+| species | Species name |
+| total_abundance | Sum abundance across samples |
+| prevalence | Number of samples containing species |
+| group_abundance | Mean abundance in group |
+| actual_abundance | Prevalence-adjusted abundance |
+| normalized_actual_abundance | Final normalized abundance |
+
+---
+
+## Example Output
+
+| species | total_abundance | prevalence | normalized_actual_abundance |
+|----------|----------------|------------|-----------------------------|
+| Escherichia coli | 145.3 | 8 | 0.31 |
+| Klebsiella pneumoniae | 110.2 | 6 | 0.22 |
+| Staphylococcus aureus | 75.1 | 4 | 0.14 |
+
+---
+
+## How It Works
+
+1. Reads all `.tsv` files inside each group folder  
+2. Combines sample-level abundance tables  
+3. Calculates abundance and prevalence metrics  
+4. Computes normalized abundance  
+5. Ranks dominant organisms  
+6. Saves results as CSV files
+
+---
+
+## Example Command
+
+```bash
+python Dom16S.py /path/to/16S_data
+```
+
+---
+
+## Citation
+
+If you use this script in your research, please cite the corresponding study or repository.
 
 
-pandas
 
-argparse
+## License
 
-matplotlib
-
-
-
-📌 Citation: If you use Dom16S in your research, please cite this repository.
-
-
-
-
+MIT License
