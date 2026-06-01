@@ -2,6 +2,9 @@
 
 Dom16S is a Python script designed to process **16S sequencing abundance TSV files** from multiple sample groups and identify **dominant organisms** based on abundance and prevalence across samples.
 
+<img width="1024" height="1536" alt="16s" src="https://github.com/user-attachments/assets/0f760251-83af-4d23-921d-532ce79c6648" />
+
+
 The script calculates:
 
 - **Total abundance** of each species across samples
